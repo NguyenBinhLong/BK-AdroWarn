@@ -1,0 +1,11 @@
+{
+    "critical": [
+        "android.permission.INTERNET"
+    ],
+    "warning": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.READ_PHONE_STATE",
+        "android.permission.RECORD_AUDIO"
+    ]
+}
