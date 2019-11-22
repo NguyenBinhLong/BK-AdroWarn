@@ -92,10 +92,12 @@ def main():
     # if options.display_report:
         # Brace yourself, a massive dump is coming
         # dump_analysis_results(data,sys.stdout) 
-    
-    check_permissions(app_detail,data)
 
-    # generate_report(package_name, data, options.verbose, options.report, options.output)
+    # log.error(len(data))
+    
+    # check_permissions(app_detail,data)
+
+    generate_report(package_name, data, options.verbose, options.report, options.output)
 
 def check_permissions(app_detail,data):
     if not app_detail:
