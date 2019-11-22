@@ -116,12 +116,11 @@ def main():
 
 
 def check_permissions(app_detail, data):
-    if app_detail:
-        log.error("co")
+    if (app_detail) != ('N/A', 'N/A'):
         remain_permission = check_permissions_helper(app_detail, data)
     else:
-        log.error("khong")
-        remain_permission = getAppPermissions(data)
+        remain_permission =["APPLICATION IS SIDE-LOADED__--__2"]
+        remain_permission = remain_permission+ getAppPermissions(data)
     return_permissions = []
     if len(remain_permission) != 0:
         danger_permission = getDangerrousPermissions()
@@ -176,7 +175,6 @@ def getDangerrousPermissions():
 def getConfigPath(app_detail):
     global CONFIG_DIR
     return CONFIG_DIR + 'permissions/' + str(app_detail['category'][0]).lower() + ".json"
-
 
 if __name__ == "__main__":
     main()
