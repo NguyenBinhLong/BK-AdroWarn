@@ -62,12 +62,12 @@ def perform_analysis(apk_file, a, d, x, online_lookup) :
                 { 'analysis_results' :
                     [
                         ( 'telephony_identifiers_leakage',           gather_telephony_identifiers_leakage(x) ),
-                        ( 'device_settings_harvesting',              gather_device_settings_harvesting(x) ),
-                        ( 'location_lookup',                         gather_location_lookup(x) ),
-                        ( 'connection_interfaces_exfiltration',      gather_connection_interfaces_exfiltration(x) ),
-                        ( 'telephony_services_abuse',                gather_telephony_services_abuse(a,x) ),
-                        ( 'audio_video_eavesdropping',               gather_audio_video_eavesdropping(x) ),
-                        ( 'suspicious_connection_establishment',     gather_suspicious_connection_establishment(x) ),
+                        # ( 'device_settings_harvesting',              gather_device_settings_harvesting(x) ),
+                        # ( 'location_lookup',                         gather_location_lookup(x) ),
+                        # ( 'connection_interfaces_exfiltration',      gather_connection_interfaces_exfiltration(x) ),
+                        # ( 'telephony_services_abuse',                gather_telephony_services_abuse(a,x) ),
+                        # ( 'audio_video_eavesdropping',               gather_audio_video_eavesdropping(x) ),
+                        # ( 'suspicious_connection_establishment',     gather_suspicious_connection_establishment(x) ),
                         ( 'PIM_data_leakage',                        gather_PIM_data_leakage(x) ),
                         ( 'code_execution',                          gather_code_execution(x) )
                     ],
@@ -77,10 +77,10 @@ def perform_analysis(apk_file, a, d, x, online_lookup) :
     data.append(
                 { 'apk_file' :
                     [
-                        ( 'file_name',                              [grab_filename(a)] ),
-                        ( 'fingerprint',                             grab_apk_file_hashes(apk_file) ),
-                        ( 'file_list',                               grab_file_list(a) ),
-                        ( 'certificate_information',                 grab_certificate_information(a) )
+                        # ( 'file_name',                              [grab_filename(a)] ),
+                        # ( 'fingerprint',                             grab_apk_file_hashes(apk_file) ),
+                        # ( 'file_list',                               grab_file_list(a) ),
+                        # ( 'certificate_information',                 grab_certificate_information(a) )
                     ]
                 }
     )   
@@ -88,15 +88,15 @@ def perform_analysis(apk_file, a, d, x, online_lookup) :
     data.append(
                 { 'androidmanifest.xml' :
                     [
-                        ( 'main_activity',                          [grab_main_activity(a)] ),
-                        ( 'sdk_versions',                            grab_sdk_versions(a) ),
+                        # ( 'main_activity',                          [grab_main_activity(a)] ),
+                        # ( 'sdk_versions',                            grab_sdk_versions(a) ),
                         ( 'activities',                              grab_activities(a) ),
                         ( 'services',                                grab_services(a) ),
-                        ( 'receivers',                               grab_receivers(a) ),
-                        ( 'providers',                               grab_providers(a) ),
+                        # ( 'receivers',                               grab_receivers(a) ),
+                        # ( 'providers',                               grab_providers(a) ),
                         ( 'permissions',                             grab_permissions(a) ),
-                        ( 'features',                                grab_features(a) ),
-                        ( 'libraries',                               grab_libraries(a) )
+                        # ( 'features',                                grab_features(a) ),
+                        # ( 'libraries',                               grab_libraries(a) )
                     ]
                 }
     )
@@ -104,10 +104,10 @@ def perform_analysis(apk_file, a, d, x, online_lookup) :
     data.append(
                 { 'apis_used' :
                     [
-                        ( 'classes_list',                            grab_classes_list(d, x) ),
-                        ( 'internal_classes_list',                   grab_internal_classes_list(d, x) ),
-                        ( 'classes_hierarchy',                       grab_classes_hierarchy(d, x) ),
-                        ( 'intents_sent',                            grab_intents_sent(x) )
+                        # ( 'classes_list',                            grab_classes_list(d, x) ),
+                        # ( 'internal_classes_list',                   grab_internal_classes_list(d, x) ),
+                        # ( 'classes_hierarchy',                       grab_classes_hierarchy(d, x) ),
+                        # ( 'intents_sent',                            grab_intents_sent(x) )
                     ]
                 }
     )   
