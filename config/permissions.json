@@ -1,6 +1,7 @@
 {
     "critical": [
-        "android.permission.INTERNET"
+        "android.permission.INTERNET",
+        "com.linecorp.b612.android.permission.C2D_MESSAGE"
     ],
     "warning": [
         "android.permission.CAMERA",
