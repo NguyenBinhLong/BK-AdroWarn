@@ -53,7 +53,15 @@
                         <div class="tab-pane" id="{{ name|replace('_', '-') }}">
                         {%- endif %}
                             {{ render_string_h_level(name|replace('_', ' ')|title, 2) }}
-                            {{ render_list_h_level(content, 3) }}
+                            {% for con in content %}
+                                {% if ('google' in con) %}
+                                    <h3 style="color: #f89406;">{{con}}</h3>
+                                {% elif 'facebook' in con %}
+                                    <h3 style="color: #f89406;">{{con}}</h3>
+                                {% else %}
+                                    <h3>{{con}}</h3>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     {% endif -%}
                 {% endfor -%}
