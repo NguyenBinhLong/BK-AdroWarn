@@ -110,17 +110,17 @@ def main():
 
     data[3]['androidmanifest.xml'][2]=('permissions',remain_permission)
 
-    log.error(data[3])
+    # log.error(data[3])
 
-    # generate_report(package_name, data, options.verbose, options.report, options.output)
+    generate_report(package_name, data, options.verbose, options.report, options.output)
 
 
 def check_permissions(app_detail, data):
     if app_detail:
-        log.error("co")
+        # log.error("co")
         remain_permission = check_permissions_helper(app_detail, data)
     else:
-        log.error("khong")
+        # log.error("khong")
         remain_permission = getAppPermissions(data)
     return_permissions = []
     if len(remain_permission) != 0:
@@ -136,7 +136,7 @@ def check_permissions(app_detail, data):
         for key, value in remain_permission.items():
             new_value = str(key)
             if value != 0:
-                new_value = str(key) + "__-__" + str(value)
+                new_value = str(key) + "__--__" + str(value)
             return_permissions.append(new_value)
     return return_permissions
 

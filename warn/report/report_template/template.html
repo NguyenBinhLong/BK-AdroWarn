@@ -52,16 +52,20 @@
                         {%- else %}
                         <div class="tab-pane" id="{{ name|replace('_', '-') }}">
                         {%- endif %}
-                            {{ render_string_h_level(name|replace('_', ' ')|title, 2) }}
-                            {% for con in content %}
-                                {% if ('google' in con) %}
-                                    <h3 style="color: #f89406;">{{con}}</h3>
-                                {% elif 'facebook' in con %}
-                                    <h3 style="color: #f89406;">{{con}}</h3>
-                                {% else %}
-                                    <h3>{{con}}</h3>
-                                {% endif %}
-                            {% endfor %}
+                        {{ render_string_h_level(name|replace('_', ' ')|title, 2) }}
+                        {% for con in content %}
+                            {% if ('__--__2' in con) %}
+                                <h3 style="color: #ee5f5b;">{{ con|replace('__--__2', '') }}</h3>
+                            {% elif '__--__1' in con %}
+                                <h3 style="color: #f89406;">{{ con|replace('__--__1', '') }}</h3>
+                            {% elif ('com.google.' in con) %}
+                                <h3 style="color: #f89406;">{{con}}</h3>
+                            {% elif 'com.facebook.' in con %}
+                                <h3 style="color: #f89406;">{{con}}</h3>
+                            {% else %}
+                                <h3>{{con}}</h3>
+                            {% endif %}
+                        {% endfor %}
                         </div>
                     {% endif -%}
                 {% endfor -%}
