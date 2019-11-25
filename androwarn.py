@@ -115,7 +115,6 @@ def main():
     generate_report(package_name, data, options.verbose, options.report, options.output)
 
 
-def check_permissions(app_detail, data):
 
     if (app_detail) != ('N/A', 'N/A'):
         remain_permission = check_permissions_helper(app_detail, data)
