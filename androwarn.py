@@ -32,6 +32,7 @@ import argparse
 import json
 import ast
 import pickle
+from collections import Iterable 
 
 # Androwarn modules import
 from warn.search.search import grab_application_package_name, grab_application_detail
@@ -110,17 +111,16 @@ def main():
 
     data[3]['androidmanifest.xml'][2]=('permissions',remain_permission)
 
-    # log.error(data[3])
-
     generate_report(package_name, data, options.verbose, options.report, options.output)
 
 
 
+def check_permissions(app_detail, data):
     if (app_detail) != ('N/A', 'N/A'):
         remain_permission = check_permissions_helper(app_detail, data)
     else:
-        remain_permission =["APPLICATION IS SIDE-LOADED__--__2"]
-        remain_permission = remain_permission+ getAppPermissions(data)
+        remain_permission ={"APPLICATION IS SIDE-LOADED":2}
+        remain_permission.update(getAppPermissions(data))
     return_permissions = []
     if len(remain_permission) != 0:
         danger_permission = getDangerrousPermissions()
@@ -156,7 +156,7 @@ def getAppPermissions(data):
         index = index + 1
         permission_data = permission_data + ast.literal_eval(raw[index:].strip())
 
-    category_permissions = dict(zip(permission_data, [0] * len(permission_data)))
+    category_permissions = dict(zip(flatten(permission_data), [0] * len(permission_data)))
     return category_permissions
 
 
@@ -175,6 +175,15 @@ def getDangerrousPermissions():
 def getConfigPath(app_detail):
     global CONFIG_DIR
     return CONFIG_DIR + 'permissions/' + str(app_detail['category'][0]).lower() + ".json"
+
+def flatten(items):
+    """Yield items from any nested iterable; see Reference."""
+    for x in items:
+        if isinstance(x, Iterable) and not isinstance(x, (str, bytes)):
+            for sub_x in flatten(x):
+                yield sub_x
+        else:
+            yield x
 
 if __name__ == "__main__":
     main()
